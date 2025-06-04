@@ -4,7 +4,7 @@ import torch
 import comfy.utils
 import node_helpers
 import folder_paths
-import random
+import uuid
 
 import nodes
 from nodes import MAX_RESOLUTION
@@ -372,7 +372,7 @@ class MaskPreview(nodes.SaveImage):
     def __init__(self):
         self.output_dir = folder_paths.get_temp_directory()
         self.type = "temp"
-        self.prefix_append = "_temp_" + ''.join(random.choice("abcdefghijklmnopqrstupvxyz") for x in range(5))
+        self.prefix_append = f"_temp_{uuid.uuid4().hex[:8]}"
         self.compress_level = 4
 
     @classmethod
