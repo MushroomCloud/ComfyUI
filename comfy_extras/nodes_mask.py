@@ -372,7 +372,7 @@ class MaskPreview(nodes.SaveImage):
     def __init__(self):
         self.output_dir = folder_paths.get_temp_directory()
         self.type = "temp"
-        self.prefix_append = f"_temp_{uuid.uuid4().hex[:8]}"
+        self.prefix_append = f"_temp_{uuid.uuid4().hex}"
         self.compress_level = 4
 
     @classmethod
