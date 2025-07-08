@@ -8,7 +8,7 @@ import hashlib
 import traceback
 import math
 import time
-import uuid
+import random
 import logging
 
 from PIL import Image, ImageOps, ImageSequence
@@ -1617,7 +1617,7 @@ class PreviewImage(SaveImage):
     def __init__(self):
         self.output_dir = folder_paths.get_temp_directory()
         self.type = "temp"
-        self.prefix_append = f"_temp_{uuid.uuid4().hex}"
+        self.prefix_append = "_temp_" + ''.join(random.choice("abcdefghijklmnopqrstupvxyz") for x in range(5))
         self.compress_level = 1
 
     @classmethod
